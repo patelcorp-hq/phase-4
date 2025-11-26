@@ -1,20 +1,24 @@
-# Phase 3: Monitoring Basics
+# Phase 4: Real-Time Stream
 
-Prometheus metrics, Grafana dashboards, and structured logging.
+Live transaction streaming via Yellowstone gRPC.
 
 ## What's Here
 
-- Prometheus metrics exporter
-- Core metrics: swaps processed, slots processed, last slot, uptime
-- Grafana dashboard configuration
-- Structured logging with rotation
-- Docker compose setup for monitoring stack
+- Yellowstone gRPC client
+- Real-time transaction stream subscription
+- Live swap parsing and ClickHouse insertion
+- Automatic reconnection with backoff
+- Real-time checkpointing
+- Graceful shutdown handling
+- Additional metrics: slot lag, connection status, swaps per second
 
 ## Status
 
-- Prometheus running and scraping metrics
-- Grafana dashboard accessible at MSI_IP:3000
-- Key panels: swaps per minute, last processed slot, process uptime
-- Logging to both console and rotating files
-- Progress logs every 10K slots
-- All errors logged with full context
+- Successfully connected to Yellowstone gRPC
+- Subscribed to Raydium program updates
+- Real-time swaps flowing to ClickHouse
+- Automatic reconnection tested and working
+- Checkpoint updates every 100 swaps
+- No duplicate processing on reconnect
+- Graceful shutdown saves state correctly
+- 24+ hour stress test passed: stable memory, no crashes
